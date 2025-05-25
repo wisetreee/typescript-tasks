@@ -1,0 +1,29 @@
+{
+  "name": "typescript-tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisetreee/typescript-tasks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/wisetreee/typescript-tasks/issues"
+  },
+  "homepage": "https://github.com/wisetreee/typescript-tasks#readme",
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
