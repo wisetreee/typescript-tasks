@@ -29,6 +29,9 @@ getData(COMMENTS_URL)
       console.log(`ID: ${comment.id}, Email: ${comment.email}`)
     })
     
+  })
+  .catch ((e) => {
+    console.error(e);
   });
 
 /**
