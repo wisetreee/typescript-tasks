@@ -1,6 +1,6 @@
 
 
-const posts = [
+export const posts = [
   {
     id: '62e69d5a5458aac0ed320b35',
     title: 'id labore ex et quam laborum',
@@ -38,18 +38,28 @@ const posts = [
   }
 ];
 
-const normalizeData = (unnormalizedData) => {
-  // Your code here...
-};
 
-console.log(normalizeData(posts));
-/**
- * {
- *    byId: {
- *      62e69d5a5458aac0ed320b35: { id: '...', title: '...', body: '...' },
- *      62e69d5a5458aac0ed320b1c: { id: '...', title: '...', body: '...' },
- *      ...
- *    },
- *    allIds: ['62e69d5a5458aac0ed320b35', '62e69d5a5458aac0ed320b1c', ...]
- * }
- */
+interface post {
+  id: string;
+  title: string;
+  body: string;
+}
+
+interface normalizedData<T> {
+  byId: {
+    [id: string]: T; 
+  };
+  allIds: string[];  
+}
+
+export const normalizeData = (unnormalizedData: post[]): normalizedData<post> => {
+  let res: normalizedData<post> = {
+    byId: {},
+    allIds:[]
+  };
+  unnormalizedData.map((post) => {
+    res.byId[post.id] = post;
+    res.allIds.push(post.id);
+  })
+  return res;
+};
