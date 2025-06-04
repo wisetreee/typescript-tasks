@@ -38,26 +38,19 @@ export const posts = [
   }
 ];
 
-
-interface post {
-  id: string;
-  title: string;
-  body: string;
-}
-
-interface normalizedData<T> {
+interface INormalizedData<T> {
   byId: {
     [id: string]: T; 
   };
   allIds: string[];  
 }
 
-export const normalizeData = (unnormalizedData: post[]): normalizedData<post> => {
-  let res: normalizedData<post> = {
+export const normalizeData = <T extends { id: string }>(unnormalizedData: T[]): INormalizedData<T> => {
+  let res: INormalizedData<T> = {
     byId: {},
     allIds:[]
   };
-  unnormalizedData.map((post) => {
+  unnormalizedData.forEach((post) => {
     res.byId[post.id] = post;
     res.allIds.push(post.id);
   })
